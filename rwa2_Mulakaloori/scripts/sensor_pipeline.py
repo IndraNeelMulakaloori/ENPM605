@@ -40,7 +40,6 @@ def process_sensor_pipeline(filename:str):
                 
                 ## Iterating over the sensor data and creating a list of dictionaries
                 
-                ## TODO : Error handling for sensor readings
                 for record in sensor_data:
                     sensor_data_list.append({
                         header[0] : int(record[0]),
@@ -53,6 +52,10 @@ def process_sensor_pipeline(filename:str):
         ## Handling the FileNotFoundError exception
         except FileNotFoundError:
             print("Pass a Valid filename!!!!")
+            return []
+        
+        except ValueError:
+            print("Invalid sensor id or distance!!!!")
             return []
         
     def inches_to_cm(inches : float) -> float:
@@ -146,7 +149,7 @@ def process_sensor_pipeline(filename:str):
         print(format_filtered(reading)) ## Printing the filtered sensor readings
         
     average = average_distance(filtered_sensor_readings) ## Calculating the average distance
-    format_average = partial(print_message, "The Average distance of the filtered readings are") ## Creating a partial function with the message
+    format_average = partial(print_message, "The Average distance of the filtered readings") ## Creating a partial function with the message
     
     ## Printing the average distance
     print(format_average(average))
