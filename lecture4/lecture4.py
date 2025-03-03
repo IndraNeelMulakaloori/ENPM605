@@ -77,9 +77,9 @@
 # result = process_data(data_sample)  # {'apple': 1, 'banana': 2}
 # print(result)
 
-# # ==================
-# # ====== </8> ======
-# # ==================
+# # # ==================
+# # # ====== </8> ======
+# # # ==================
 # from typing import Union
 
 # def parse_input(value: str) -> Union[int, float, str]:
@@ -219,18 +219,18 @@
 # # ===================
 # # ====== </18> ======
 # # ===================
-# from typing import Union
+from typing import Union
 
-# def sum_numbers(*args: Union[int, float]) -> Union[int, float]:
-#     print(type(args))
-#     for item in args:
-#         print(item)
-#     return sum(args)
+def sum_numbers(*args: Union[int, float]) -> Union[int, float]:
+    print(type(args))
+    for item in args:
+        print(item)
+    return sum(args)
 
-# # Function calls with different numbers of arguments
-# print(sum_numbers(2, 4, 6))        # Output: 12
-# print(sum_numbers(1, 2, 3, 4, 5))  # Output: 15
-# print(sum_numbers())               # Output: 0
+# Function calls with different numbers of arguments
+print(sum_numbers(2, 4, 6))        # Output: 12
+print(sum_numbers(1, 2, 3, 4, 5))  # Output: 15
+print(sum_numbers())               # Output: 0
 
 # # ===================
 # # ====== </19> ======
@@ -249,52 +249,52 @@
 # # city: New York
 
 # print_user_info(language="Python", version=3.10, is_dynamic=True)
-# # language: Python
-# # version: 3.10
-# # is_dynamic: True
+# language: Python
+# version: 3.10
+# is_dynamic: True
 
 # # ===================
 # # ====== </20> ======
 # # ===================
-# from typing import Any
+from typing import Any
 
 
-# def display_info(*args: Any, **kwargs: Any) -> None:
-#     print("Positional arguments:", args)
-#     print("Keyword arguments:", kwargs)
+def display_info(*args: Any, **kwargs: Any) -> None:
+    print("Positional arguments:", args)
+    print("Keyword arguments:", kwargs)
 
 
-# # Example usage
-# display_info(1, "hello", True, name="Alice", age=25)
-# # Positional arguments: (1, 'hello', True)
-# # Keyword arguments: {'name': 'Alice', 'age': 25}
+# Example usage
+display_info(1, "hello", True, name="Alice", age=25)
+# Positional arguments: (1, 'hello', True)
+# Keyword arguments: {'name': 'Alice', 'age': 25}
 
 # # ===================
 # # ====== </21> ======
 # # ===================
-# def print_everything(*args, **kwargs):
-#     for arg in args:
-#         print(arg)
-#     for key, value in kwargs.items():
-#         print(f"{key}: {value}")
+def print_everything(*args, **kwargs):
+    for arg in args:
+        print(arg)
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
 
-# # Example usage
-# print_everything(1, 'Apple', username='john_doe', age=25)
+# Example usage
+print_everything(1, 'Apple', username='john_doe', age=25)
 
 # # ===================
 # # ====== </22> ======
 # # ===================
-# def display_info(name: str, age: int, city: str) -> None:
-#     print(f"Name: {name}, Age: {age}, City: {city}")
+def display_info(name: str, age: int, city: str) -> None:
+    print(f"Name: {name}, Age: {age}, City: {city}")
 
 
-# # Using * for positional argument unpacking
-# user_data = ("Alice", 30, "New York")
-# display_info(*user_data)
-# # display_info(user_data[0], user_data[1], user_data[2])
-# user_data = ["Alice", 30, "New York"]
-# display_info(*user_data)
-# # display_info(user_data[0], user_data[1], user_data[2])
+# Using * for positional argument unpacking
+user_data = ("Alice", 30, "New York")
+display_info(*user_data)
+# display_info(user_data[0], user_data[1], user_data[2])
+user_data = ["Alice", 30, "New York"]
+display_info(*user_data)
+# display_info(user_data[0], user_data[1], user_data[2])
 
 # # ===================
 # # ====== </23> ======
@@ -324,12 +324,12 @@
 # # ===================
 # # ====== </25> ======
 # # ===================
-# def display_info(name, age, city):
-#     print(f"Name: {name}, Age: {age}, City: {city}")
+def display_info(name, age, city):
+    print(f"Name: {name}, Age: {age}, City: {city}")
 
-# # Using ** for keyword argument unpacking
-# user_info = {"name": "Bob", "age": 25, "city": "San Francisco"}
-# display_info(**user_info)
+# Using ** for keyword argument unpacking
+user_info = {"name": "Bob", "age": 25, "city": "San Francisco"}
+display_info(**user_info)
 
 # # ===================
 # # ====== </26> ======
@@ -397,25 +397,26 @@
 # # ===================
 # # ====== </31> ======
 # # ===================
-# count = 0  # Global variable
+count = 0  # Global variable
 
-# def increment():
-#     global count  # We are modifying the global variable
-#     count += 1
+def increment(count):
+    # global count  # We are modifying the global variable
+    count += 1
+    return count
 
-# increment()
-# print(count)  # Output: 1
+print(increment(count))
+print(count)  # Output: 1
 
 # # ===================
 # # ====== </32> ======
 # # ===================
-# fruits = ["apple", "banana"]
+fruits = ["apple", "banana"]
 
-# def add_to_list(a):
-#     fruits.append(a)
+def add_to_list(a):
+    fruits.append(a)
 
-# add_to_list("orange")
-# print(fruits) # ["apple", "banana", "orange]
+add_to_list("orange")
+print(fruits) # ["apple", "banana", "orange]
 
 # # ===================
 # # ====== </33> ======
@@ -506,7 +507,6 @@ def edit_inputs(fruits, animals, age):
     fruits = ["quince", "pear"]
     animals = ["elephant"]
     age += 1
-
 
 fruits = ["apple", "banana"]
 animals = ["bear", "tiger"]

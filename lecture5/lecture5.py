@@ -1,13 +1,13 @@
 # ===================
 # ====== </1> ======
 # ===================
-def my_function():
-    pass
+# def my_function():
+#     pass
 
 
-print(callable(my_function))  # True
-print(callable(42))  # False
-print(callable([1, 2, 3]))  # False
+# print(callable(my_function))  # True
+# print(callable(42))  # False
+# print(callable([1, 2, 3]))  # False
 
 
 # # ===================
@@ -144,7 +144,7 @@ print(callable([1, 2, 3]))  # False
 # # ===================
 # # ====== </9> ======
 # # ===================
-# concat_strings = # Your lambda function here
+# concat_strings = lambda s1, s2: s1 + " " + s2
 
 # print(concat_strings("Hello", "World"))  # Expected output: "Hello World"
 # print(concat_strings("Lambda", "Functions"))  # Expected output: "Lambda Functions"
@@ -430,31 +430,31 @@ print(callable([1, 2, 3]))  # False
 # # ====================
 
 
-# def compose(*functions):
-#     def composed_func(x):
-#         for f in reversed(functions):
-#             x = f(x)
-#         return x
+def compose(*functions):
+    def composed_func(x):
+        for f in reversed(functions):
+            x = f(x)
+        return x
 
-#     return composed_func
-
-
-# # Define some basic functions
-# def increment(x):
-#     return x + 1
+    return composed_func
 
 
-# def square(x):
-#     return x * x
+# Define some basic functions
+def increment(x):
+    return x + 1
 
 
-# def half(x):
-#     return x / 2
+def square(x):
+    return x * x
 
 
-# # Usage
-# composed_number_function = compose(half, square, increment)
-# print(composed_number_function(3))  # 3 -> 4 -> 16 -> 8.0
+def half(x):
+    return x / 2
+
+
+# Usage
+composed_number_function = compose(half, square, increment)
+print(composed_number_function(3))  # 3 -> 4 -> 16 -> 8.0
 
 
 # # ====================

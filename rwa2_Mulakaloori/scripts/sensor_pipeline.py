@@ -39,6 +39,8 @@ def process_sensor_pipeline(filename:str):
                 header = next(sensor_data) ## Getting the header of the CSV file
                 
                 ## Iterating over the sensor data and creating a list of dictionaries
+                
+                ## TODO : Error handling for sensor readings
                 for record in sensor_data:
                     sensor_data_list.append({
                         header[0] : int(record[0]),
