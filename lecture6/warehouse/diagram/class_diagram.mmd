@@ -1,0 +1,46 @@
+classDiagram
+    class Robot {
+        <<abstract>>
+        -String robot_id
+        -String model
+        +perform_task()* 
+        +move(destination, time_required)
+        +assign_operator(operator)
+    }
+
+    class Battery {
+        -int capacity
+        -int charge_level
+        +use(hours)
+        +recharge()
+    }
+
+    class Operator {
+        -String name
+        +give_instruction(robot, instruction)
+    }
+
+    class CarrierRobot {
+        -int load_capacity
+        +perform_task()
+    }
+
+    class ScannerRobot {
+        -int scan_range
+        +perform_task()
+    }
+
+    class SorterRobot {
+        -int sorting_speed
+        +perform_task()
+    }
+
+    Robot *-- Battery : has
+    Robot o-- Operator : controlled by
+    Robot <|-- CarrierRobot : extends
+    Robot <|-- ScannerRobot : extends
+    Robot <|-- SorterRobot : extends
+
+    note for Robot "Abstract base class with common robot functionality"
+    note for Battery "Composition: Essential part of the robot"
+    note for Operator "Association: Exists independently"

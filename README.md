@@ -131,3 +131,17 @@ At the end of this lecture, you will learn the following:
   - Higher-order functions.
   - Function compositions.
   - Recursive functions.
+
+## Lecture 6 - OOP - Part I
+
+### Learning Objectives
+
+At the end of this lecture, you will learn the following:
+
+- Understand closures.
+- Understand decorators.
+- Object-oriented programming:
+  - Understand classes.
+  - Understand objects.
+  - Learn the differences between instance and class attributes.
+  - Understand __init__, self, and magic methods.
