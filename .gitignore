@@ -172,3 +172,5 @@ cython_debug/
 
 virtual_env/
 lecture-docs/
+*.zip
+*.tar 
