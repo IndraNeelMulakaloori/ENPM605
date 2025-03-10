@@ -1,4 +1,4 @@
-#! /usr/bin/env/python3
+#! /usr/bin/env python3
 
 # # ===================
 # # ====== </1> ======
@@ -142,6 +142,20 @@
 
 # Exercise 1
 
+
+def decorator_exclaim(func):
+    def wrapper(*args, **kwargs):
+        return func(*args,**kwargs)  + "!!!"
+        # print("!!!")
+    return wrapper 
+
+@decorator_exclaim
+def greet(name=""):
+    return f"Hello, {name}"
+    
+
+result = greet("Neel")
+print(result)
 # ===================
 # ====== </11> ======
 # ===================
@@ -249,81 +263,81 @@
 # # ===================
 # # ====== </15> ======
 # # ===================
-# class Robot:
-#     """
-#     A class representing a robot with basic movement capabilities.
+class Robot:
+    """
+    A class representing a robot with basic movement capabilities.
 
-#     This class provides a blueprint for creating robot objects with specific
-#     physical attributes and implements basic movement functionality.
+    This class provides a blueprint for creating robot objects with specific
+    physical attributes and implements basic movement functionality.
 
-#     Attributes:
-#         name (str): The name of the robot.
-#         weight (float): The weight of the robot in kilograms.
-#         width (float): The width of the robot in centimeters.
-#     """
+    Attributes:
+        name (str): The name of the robot.
+        weight (float): The weight of the robot in kilograms.
+        width (float): The width of the robot in centimeters.
+    """
 
-#     def __init__(self, name: str, weight: float, width: float) -> None:
-#         """
-#         Initialize a new Robot instance.
+    def __init__(self, name: str, weight: float, width: float) -> None:
+        """
+        Initialize a new Robot instance.
 
-#         Args:
-#             name (str): The name to assign to the robot.
-#             weight (float): The weight of the robot in kilograms.
-#             width (float): The width of the robot in centimeters.
-#         """
-#         self.name = name
-#         self.weight = weight
-#         self.width = width
+        Args:
+            name (str): The name to assign to the robot.
+            weight (float): The weight of the robot in kilograms.
+            width (float): The width of the robot in centimeters.
+        """
+        self.name = name
+        self.weight = weight
+        self.width = width
 
-#     def walk_forward(self) -> None:
-#         """
-#         Make the robot walk forward.
+    def walk_forward(self) -> None:
+        """
+        Make the robot walk forward.
 
-#         Prints a message indicating that the robot is walking forward.
+        Prints a message indicating that the robot is walking forward.
 
-#         Returns:
-#             None
-#         """
-#         print(f"{self.name} is walking forward")
+        Returns:
+            None
+        """
+        print(f"{self.name} is walking forward")
 
-#     def walk_backward(self) -> None:
-#         """
-#         Make the robot walk backward.
+    def walk_backward(self) -> None:
+        """
+        Make the robot walk backward.
 
-#         Prints a message indicating that the robot is walking backward.
+        Prints a message indicating that the robot is walking backward.
 
-#         Returns:
-#             None
-#         """
-#         print(f"{self.name} is walking backward")
+        Returns:
+            None
+        """
+        print(f"{self.name} is walking backward")
 
-#     def jump(self) -> None:
-#         """
-#         Make the robot jump.
+    def jump(self) -> None:
+        """
+        Make the robot jump.
 
-#         Prints a message indicating that the robot is jumping.
+        Prints a message indicating that the robot is jumping.
 
-#         Returns:
-#             None
-#         """
-#         print(f"{self.name} is jumping")
+        Returns:
+            None
+        """
+        print(f"{self.name} is jumping")
 
 # # ===================
 # # ====== </16> ======
 # # ===================
 
-# if __name__ == '__main__':
-#     nimble = Robot('Nimble', 65.0, 20.0)
-#     print(nimble.name, nimble.weight, nimble.width)
-#     nimble.walk_forward()
-#     nimble.walk_backward()
-#     nimble.jump()
+if __name__ == '__main__':
+    nimble = Robot('Nimble', 65.0, 20.0)
+    print(nimble.name, nimble.weight, nimble.width)
+    nimble.walk_forward()
+    nimble.walk_backward()
+    nimble.jump()
     
-#     dash = Robot('Dash', 65.0, 20.0)
-#     print(dash.name, dash.weight, dash.width)
-#     dash.walk_forward()
-#     dash.walk_backward()
-#     dash.jump()
+    dash = Robot('Dash', 65.0, 20.0)
+    print(dash.name, dash.weight, dash.width)
+    dash.walk_forward()
+    dash.walk_backward()
+    dash.jump()
 
 # # ===================
 # # ====== </17> ======

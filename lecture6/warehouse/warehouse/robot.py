@@ -14,23 +14,23 @@ class Robot(object):
                 f"{self.model} Robot {self.robot_id} has insufficient battery to move!"
             )
 
-    # def __str__(self):
-    #     return (
-    #         f"Robot ID: {self.robot_id}\n"
-    #         f"Model: {self.model}\n"
-    #         f"Battery Charge Level: {self.battery_charge_level:.2f}\n"
-    #         f"Sensors: {', '.join(self.sensors)}"
-    #     )
+    def __str__(self):
+        return (
+            f"Robot ID: {self.robot_id}\n"
+            f"Model: {self.model}\n"
+            f"Battery Charge Level: {self.battery_charge_level:.2f}\n"
+            f"Sensors: {', '.join(self.sensors)}"
+        )
 
-    # def __call__(self, task: str) -> None:
-    #     """Allows the robot to be 'called' like a function to perform a task."""
-    #     print(f"Robot {self.robot_id} is executing task: {task}")
+    def __call__(self, task: str) -> None:
+        """Allows the robot to be 'called' like a function to perform a task."""
+        print(f"Robot {self.robot_id} is executing task: {task}")
 
-    # def __gt__(self, other):
-    #     if isinstance(other, Robot):
-    #         return self.battery_charge_level > other.battery_charge_level
-    #     else:
-    #         raise TypeError("Unsupported operand types for >")
+    def __gt__(self, other):
+        if isinstance(other, Robot):
+            return self.battery_charge_level > other.battery_charge_level
+        else:
+            raise TypeError("Unsupported operand types for >")
 
 
 
