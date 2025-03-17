@@ -145,3 +145,16 @@ At the end of this lecture, you will learn the following:
   - Understand objects.
   - Learn the differences between instance and class attributes.
   - Understand __init__, self, and magic methods.
+
+## Lecture 7 - OOP - Part II
+
+### Learning Objectives
+
+At the end of this lecture, you will learn the following:
+
+- Describe the Pythonic way to implement encapsulation.
+- Identify and implement *class relationships* (association, aggregation, composition).
+- Explain and apply *inheritance* in Python.
+- Differentiate between *generalization* and *specialization*.
+- Implement *method overriding* and understand *polymorphism*.
+- Use *abstract base classes (ABCs)* to enforce method implementation.
