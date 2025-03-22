@@ -30,20 +30,20 @@ In `main()`, implement the following code to test different aspects of your prog
 Note: If I create a third robot and I add it to the fleet, your fleet operations should
 still work (use for loop)
 """
+
+
+
 import sys
 import os.path
-
 path = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.append(path)
-
 
 from space_robotics.models.sensor.LiDAR import LiDAR
 from space_robotics.models.sensor.Camera import Camera
 from space_robotics.models.sensor.SensorSystem import SensorSystem
 from space_robotics.models.robot.PlanetaryRover import PlanetaryRover
-
-
-
+from space_robotics.models.robot.OrbitalRobotRover import OrbitalRobotRover
+from space_robotics.models.robot.RoboticFleet import RoboticFleet
 def main():
     # new_lidar = LiDAR("X-500",100.0,0.5)
     # print(new_lidar.get_info())
@@ -69,9 +69,24 @@ def main():
       "wheels",
       "rocky"
     )
-    mars_rover.activate()
+    # mars_rover.activate()
     # print(mars_rover.move())
-    print(mars_rover.perform_task('collectio'))
+    # print(mars_rover.perform_task("mapping"))
     
+    orbital_rover = OrbitalRobotRover(
+      "OrbitFixer",
+      SensorSystem([
+        LiDAR("X-500",100.0,0.5),
+        Camera("OrbitCam",20.0,20),
+        Camera("CamPro",50.0,20)
+      ]),
+      "thrusters",
+      400.5
+    )
+    # orbital_rover.activate()
+    # print(orbital_rover.perform_task("maintenance"))
+    
+    fleet = RoboticFleet([orbital_rover,mars_rover])
+    print(fleet.deploy_mission('mapping'))
 if __name__ == '__main__':
     main()

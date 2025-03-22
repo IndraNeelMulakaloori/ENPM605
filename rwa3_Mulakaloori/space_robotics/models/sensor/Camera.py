@@ -7,8 +7,8 @@ class Camera(Sensor):
         self._pixel_resolution = pixel_resolution
         
     def get_info(self) -> str:
-        return f"\tCamera (Model : {self._model}, Range: {self._range}m, Pixel Resolution : {self._pixel_resolution}MP)"
+        return f"    Camera (Model : {self._model}, Range: {self._range}m Pixel Resolution : {self._pixel_resolution}MP)"
     
     def operate(self) -> str:
-        return f"\t{self._model} (Camera) Operation: Capturing Image at {self._pixel_resolution} resolution.\n"
+        return f"    {self._model} (Camera) Operation: Capturing Image at {self._pixel_resolution} resolution\n"
     

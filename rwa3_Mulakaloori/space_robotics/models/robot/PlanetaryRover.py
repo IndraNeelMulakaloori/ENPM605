@@ -6,17 +6,19 @@ class PlanetaryRover(SpaceRobot):
         self._terrain_type = terrain_type
         
     def move(self):
-        return f"\tMoving: Using {self._mobility} across {self._terrain_type} terrain\n"
+        return f"Moving: Using {self._mobility} across {self._terrain_type} terrain"
     
     def perform_task(self,task : str):
         
+        task_str = f"\n-Robot: {self._name}"
+        
         if task.lower() == 'mapping':
-            return f"\n-Robot: {self._name}\n{self.move()}\n{self._sensor_system.operate_sensors()}"
+            return task_str + f"\n    {self.move()}\n{self._sensor_system.operate_sensors()}"
         
         elif task.lower() == 'collection':
-            return f"\n-Robot: {self._name}\n{self.move()}"
+            return task_str + f"\n    {self.move()}"
         
-        return "\nInvalid task!!!!. Planetary Rover could only perform Mapping and Collection Tasks\n"
+        return task_str + f"\n    Unsupported Task: {task}!!!!. Planetary Rover could only perform Mapping and Collection Tasks\n"
             
         
         
