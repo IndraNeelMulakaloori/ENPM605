@@ -54,18 +54,21 @@ def main():
     
     # # print(type(new_camera))
     # # print(isinstance(new_camera,Sensor))
+    #TODO: Contorl flow stop or continue
     
-    # sensor_system = SensorSystem([new_camera,new_lidar,"Data 1"])
+    # sensor_system = SensorSystem({
+    #   'LiDAR': ["X-500",100.0,0.5],
+    #   'cAMera' : ["CamPro",50.0,12]
+    # })
     # print(sensor_system.activate())
     # print(sensor_system.operate_sensors())
     
     mars_rover = PlanetaryRover(
       "Mars Explorer",
-      SensorSystem([
-        LiDAR("X-500",100.0,0.5),
-        LiDAR("OSI",20.5,1.5),
-        Camera("CamPro",50,12)
-      ]),
+      {
+      'LiDAR': ["X-500",100.0,0.5],
+      'cAMera' : ["CamPro",50.0,12]
+      },
       "wheels",
       "rocky"
     )
@@ -75,18 +78,37 @@ def main():
     
     orbital_rover = OrbitalRobotRover(
       "OrbitFixer",
-      SensorSystem([
-        LiDAR("X-500",100.0,0.5),
-        Camera("OrbitCam",20.0,20),
-        Camera("CamPro",50.0,20)
-      ]),
+      {
+      'LiDAR': ["X-500",100.0,0.5],
+      'cAMera' : ["CamPro",50.0,12],
+      'camera' : ["OrbitCam", 20.0, 20]
+      },
       "thrusters",
       400.5
     )
     # orbital_rover.activate()
-    # print(orbital_rover.perform_task("maintenance"))
+    # print(orbital_rover.perform_task("repair"))
     
-    fleet = RoboticFleet([orbital_rover,mars_rover])
-    print(fleet.deploy_mission('mapping'))
+    fleet = RoboticFleet()
+    # print(fleet.robots)
+    print(fleet.add_robot(orbital_rover))
+    print(fleet.add_robot(mars_rover))
+    # print(fleet.remove_robot(orbital_rover))
+    print(fleet.report_status())
+    
+    for robot in fleet.robots:
+      print(robot.sensor_system.activate())
+      
+    for task in ['mapping','collection','repair','maintenance']:
+      print(fleet.deploy_mission(task))
+    
+    print(fleet.remove_robot(orbital_rover))
+    
+    for task in ['maintenance','mapping']:
+      print(fleet.deploy_mission(task))
+      
+    print(fleet.report_status())
+    
+    
 if __name__ == '__main__':
     main()

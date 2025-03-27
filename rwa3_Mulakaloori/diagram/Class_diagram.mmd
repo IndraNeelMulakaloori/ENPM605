@@ -1,0 +1,69 @@
+classDiagram
+direction BT
+    class Sensor {
+	    -model : str
+	    -range : float
+	    get_info()*
+	    operate()*
+    }
+
+    class LiDAR {
+	    -angular_resolution : float
+	    +get_info() str
+	    +operate() str
+    }
+
+    class Camera {
+	    -pixel_resolution : int
+	    +get_info() str
+	    +operate() str
+    }
+
+    class SensorSystem {
+	    -sensors : list~Sensor~
+	    -status : str
+	    +activate() str
+	    +operate_sensors() str
+    }
+
+    class SpaceRobot {
+	    -name : str
+	    -sensor_system : SensorSystem
+	    -mobility : str
+	    +activate() str
+	    perform_task(task : str)*
+    }
+
+    class PlanetaryRover {
+	    -terrain_type : str
+	    +move() str
+	    +perform_task(task : str) str
+    }
+
+    class OrbitalRobotRover {
+	    -orbit_altitude : float
+	    +move() str
+	    +perform_task(task : str) str
+    }
+
+    class RoboticFleet {
+	    -robots : list~SpaceRobot~
+	    +add_robot(robot : SpaceRobot) str
+	    +remove_robot(robot : SpaceRobot) str
+	    +deploy_mission(task : str) str
+	    +report_status() str
+    }
+
+	<<abstract>> Sensor
+	<<abstract>> SpaceRobot
+
+    LiDAR <|-- Sensor
+    Camera <|-- Sensor
+    SensorSystem *-- LiDAR
+    SensorSystem *-- Camera
+    SpaceRobot *-- SensorSystem
+    PlanetaryRover <|-- SpaceRobot
+    OrbitalRobotRover <|-- SpaceRobot
+    RoboticFleet o-- PlanetaryRover
+    RoboticFleet o-- OrbitalRobotRover
+
